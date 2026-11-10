@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "module": "MMM-MischiefSystemWatch",
-  "title": "Mischief System Watch",
+  "module": "MMM-MCHF-Vigil",
+  "title": "MCHF-Vigil",
   "recommendedPosition": "bottom_bar",
   "singleInstance": true,
   "requires": [],

@@ -1,5 +1,5 @@
 module.exports = {
-  module: "MMM-MischiefSystemWatch",
+  module: "MMM-MCHF-Vigil",
   position: "bottom_bar",
   config: {}
 };

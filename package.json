@@ -1,6 +1,6 @@
 {
-  "name": "mmm-mischiefsystemwatch",
-  "version": "0.1.0",
+  "name": "mmm-mchf-vigil",
+  "version": "0.2.0",
   "description": "Local mirror health and optional external system checks.",
   "license": "MIT",
   "author": "FoggEyez",
@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/FoggEyez/MMM-MischiefSystemWatch.git"
+    "url": "https://github.com/FoggEyez/MMM-MCHF-Vigil.git"
   },
   "bugs": {
-    "url": "https://github.com/FoggEyez/MMM-MischiefSystemWatch/issues"
+    "url": "https://github.com/FoggEyez/MMM-MCHF-Vigil/issues"
   },
-  "homepage": "https://github.com/FoggEyez/MMM-MischiefSystemWatch#readme",
+  "homepage": "https://github.com/FoggEyez/MMM-MCHF-Vigil#readme",
   "engines": {
     "node": ">=22"
   },

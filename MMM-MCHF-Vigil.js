@@ -1,8 +1,8 @@
 /* global Module, SystemWatchHealth */
-Module.register('MMM-MischiefSystemWatch', {
+Module.register('MMM-MCHF-Vigil', {
   requiresVersion: '2.38.0',
   defaults: {density:'compact',layout:'auto',placement:'auto',panelWidth:380,horizontalMargin:12,verticalMargin:6,offsetX:0,offsetY:0,textSize:'normal',backgroundOpacity:96,showMirror:true,showExternal:true,showLegend:true,staleSeconds:120,snapshotFile:'',displayService:'',pollSeconds:5},
-  getStyles() { return [this.file('MMM-MischiefSystemWatch.css')]; },
+  getStyles(){return [this.file('mischief-surfaces.css'),this.file('MMM-MCHF-Vigil.css')]; },
   getScripts() { return [this.file('health-model.js')]; },
   start() { this.readings = null; this.sendSocketNotification('WATCH_START', this.config); this.timer = setInterval(() => this.updateDom(0), 5000); },
   suspend() { clearInterval(this.timer); },
