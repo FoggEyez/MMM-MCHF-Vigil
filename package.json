@@ -1,0 +1,29 @@
+{
+  "name": "mmm-mischiefsystemwatch",
+  "version": "0.1.0",
+  "description": "Local mirror health and optional external system checks.",
+  "license": "MIT",
+  "author": "FoggEyez",
+  "keywords": [
+    "magicmirror",
+    "magicmirror-module",
+    "mischief",
+    "system",
+    "health",
+    "monitoring"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FoggEyez/MMM-MischiefSystemWatch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FoggEyez/MMM-MischiefSystemWatch/issues"
+  },
+  "homepage": "https://github.com/FoggEyez/MMM-MischiefSystemWatch#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.cjs"
+  }
+}

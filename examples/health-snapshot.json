@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "observedAt": 0,
+  "checks": [
+    {
+      "id": "example-service",
+      "name": "Example service",
+      "level": "green",
+      "detail": "Synthetic example; replace with a measured check"
+    }
+  ],
+  "metrics": {}
+}

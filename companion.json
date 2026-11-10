@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "module": "MMM-MischiefSystemWatch",
+  "title": "Mischief System Watch",
+  "recommendedPosition": "bottom_bar",
+  "singleInstance": true,
+  "requires": [],
+  "notes": "All supported settings are literal defaults in the module entry. No companion is required. This manifest documents the contract; current MMM-Config discovers defaults from JavaScript.",
+  "supportedSettings": [
+    "density",
+    "layout",
+    "placement",
+    "panelWidth",
+    "horizontalMargin",
+    "verticalMargin",
+    "offsetX",
+    "offsetY",
+    "textSize",
+    "backgroundOpacity",
+    "showMirror",
+    "showExternal",
+    "showLegend",
+    "staleSeconds",
+    "snapshotFile",
+    "displayService",
+    "pollSeconds"
+  ]
+}
