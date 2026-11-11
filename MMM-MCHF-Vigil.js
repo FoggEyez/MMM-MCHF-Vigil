@@ -16,10 +16,10 @@ Module.register('MMM-MCHF-Vigil', {
     if (this.config.showExternal !== false && this.config.snapshotFile) groups.push(['EXTERNAL SYSTEMS', H.assess(this.readings?.remote, now, Math.max(30, this.config.staleSeconds) * 1000)]);
     const checks = groups.flatMap(([,value]) => value.checks), status = H.worst(checks), view = H.viewOptions(this.config, this.data?.position || 'bottom_bar');
     const shell = this.element('section', `sw-panel sw-density-${view.density} sw-layout-${view.layout} sw-placement-${view.placement} sw-text-${view.textSize}`);
-    shell.setAttribute('aria-label', 'Mischief System Watch');
+    shell.setAttribute('aria-label', 'Mischief Vigil system health');
     for (const [key,value] of Object.entries({'--sw-width':view.panelWidth+'px','--sw-margin-x':view.horizontalMargin+'px','--sw-margin-y':view.verticalMargin+'px','--sw-offset-x':view.offsetX+'px','--sw-offset-y':view.offsetY+'px','--sw-alpha':view.backgroundOpacity/100})) shell.style.setProperty(key,value);
     const header = this.element('div','sw-header');
-    header.append(this.element('strong','sw-brand','MISCHIEF SYSTEM WATCH'), this.element('span', status, !checks.length ? 'No checks enabled' : status === 'green' ? 'Systems healthy' : status === 'red' ? 'Attention needed' : 'Readings need review'));
+    header.append(this.element('strong','sw-brand','MCHF VIGIL'), this.element('span', status, !checks.length ? 'No checks enabled' : status === 'green' ? 'Systems healthy' : status === 'red' ? 'Attention needed' : 'Readings need review'));
     shell.append(header);
     const body = this.element('div','sw-body'); body.style.setProperty('--sw-columns', `repeat(${Math.max(1,groups.length)},minmax(0,1fr))`);
     for (const [title, group] of groups) {

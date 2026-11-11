@@ -6,10 +6,14 @@
   const displayDetail = detail => typeof detail === 'string' ? detail.replace(/(-?\d+(?:\.\d+)?)°C\b/g, (_, value) => Math.round(Number(value) * 9 / 5 + 32) + '°F') : detail;
   function assess(snapshot, now = Date.now(), staleMs = 120000) {
     const fresh = finite(snapshot?.observedAt) && now - snapshot.observedAt <= staleMs && snapshot.observedAt <= now + 30000;
-    const checks = fresh && Array.isArray(snapshot.checks) ? snapshot.checks.map(c => ({...c, detail: c.detail, level: ['green','yellow','red'].includes(c.level) ? c.level : 'yellow'})) : [];
+    const checks = fresh && Array.isArray(snapshot.checks) ? snapshot.checks.slice(0,100).map((c,index) => {
+      const valid=c&&typeof c==='object'&&!Array.isArray(c)&&typeof c.name==='string'&&c.name.trim()&&['green','yellow','red'].includes(c.level)&&(c.detail===undefined||typeof c.detail==='string');
+      if(!valid)return {id:'invalid-'+index,name:'Invalid collector check',level:'yellow',detail:'The collector returned an incomplete or invalid reading'};
+      return {id:typeof c.id==='string'?c.id.slice(0,100):'check-'+index,name:c.name.slice(0,100),detail:(c.detail||'No detail reported').slice(0,500),level:c.level};
+    }) : [];
     if (!fresh) checks.push({id:'feed',name:'Server monitoring feed',level:'yellow',detail:snapshot?.observedAt ? 'External snapshot is stale' : 'Waiting for a valid snapshot'});
     if (fresh && !checks.length) checks.push({id:'empty',name:'Server checks',level:'yellow',detail:'No readings available'});
-    return {fresh,checks,level:worst(checks),metrics:fresh ? snapshot.metrics || {} : {}};
+    return {fresh,checks,level:worst(checks),metrics:fresh&&snapshot.metrics&&typeof snapshot.metrics==='object'&&!Array.isArray(snapshot.metrics) ? snapshot.metrics : {}};
   }
   function storageHeadroom(disk){
     if(!finite(disk?.total)||!finite(disk?.used)||disk.total<=0||disk.used<0||disk.used>disk.total)return null;
